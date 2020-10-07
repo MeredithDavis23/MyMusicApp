@@ -44,8 +44,15 @@
   width: fit-content;
 }
 
-.music_cards {
+#title-container {
   display: flex;
   flex-direction: row;
   color: black;
+  padding: 20px 20px;
+}
+
+#card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

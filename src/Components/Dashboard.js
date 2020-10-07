@@ -37,75 +37,87 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1 classname="welcome">Welcome User!</h1>
-        <div>
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <InputSlider />
-            </CardActions>
-          </Card>
-        </div>
-        <div>
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Switch />
-            </CardActions>
-          </Card>
-        </div>
-        <div>
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <SoundQuality />
-            </CardActions>
-          </Card>
+        <h1 classname="title-container">Welcome User!</h1>
+        <div id="card-container">
+          <div>
+            <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Online Mode
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Is this application connected to the internet?
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Switch />
+              </CardActions>
+            </Card>
+          </div>
+          <div>
+            <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Master Volume
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Overrides all other sound settings in this application
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <InputSlider />
+              </CardActions>
+            </Card>
+          </div>
+          <div>
+            <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Sound Quality
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    Manually control the music quality in event of poor
+                    connection
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <SoundQuality />
+              </CardActions>
+            </Card>
+          </div>
         </div>
       </div>
     );
