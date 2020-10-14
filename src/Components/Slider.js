@@ -15,12 +15,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function InputSlider() {
+export default function InputSlider(props) {
   const classes = useStyles();
   const [value, setValue] = useState(30);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
+    if(value >= 80) {
+      props.parentFun({slider: true}) 
+      }if(value <= 80) {
+        props.parentFun({slider: false})
+      }
   };
 
   const handleInputChange = (event) => {

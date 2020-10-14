@@ -8,8 +8,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 // import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import InputSlider from "./Slider";
-import Switch from "./Switch";
+// import Switch from "./Switch";
 import SoundQuality from "./SoundQuality";
+import Switch from '@material-ui/core/Switch'
 
 const useStyles = makeStyles({
   root: {
@@ -25,14 +26,36 @@ const classes = useStyles;
 class Dashboard extends Component {
   state = {
     slider: false,
+    // notifications: [], 
+    switch: false, 
+    drop: false
   };
 
-  // handleKids = (x) => {
-  //   const k = Object.keys(x)[0];
-  //   const newState = {};
-  //   newState[k] = x[k];
-  //   this.setState(newState);
-  // };
+
+
+  // componentDidUpdate() {
+  //   if(this.state.slider >= 80) {
+  //     this.setState({volumeNotification: "Listening to music at a high volume could cause long-term hearing loss."})
+  //   };
+  //   if(this.state.checkedC === false) {
+  //     this.setState({offlineNotification: "Your application is offline. You won't be able to share or stream music to other devices."})
+  //   };
+  //   if(this.state.formControl.value === 10) {
+  //     this.setState({qualityNotification: "Music quality is degraded. Increase quality if your connection allows it."})
+  //   }
+  // }
+
+  handleState = (x)  => {
+    const k = Object.keys(x)[0]
+    const newState = {}
+    newState[k] = x[k] 
+    this.setState(newState)
+}
+
+  switch = () => {
+    this.setState({switch: !this.state.switch})
+    console.log(this.state.switch)
+  }
 
   render() {
     return (
@@ -61,7 +84,7 @@ class Dashboard extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Switch />
+                <Switch onClick={this.switch} />
               </CardActions>
             </Card>
           </div>
@@ -87,7 +110,7 @@ class Dashboard extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <InputSlider />
+                <InputSlider parentFun={this.handleState} />
               </CardActions>
             </Card>
           </div>
@@ -114,9 +137,15 @@ class Dashboard extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <SoundQuality />
+                <SoundQuality parentFun={this.handleState} />
               </CardActions>
             </Card>
+            <div classname= "notifications">
+              <h1>System Notifications</h1>
+              {this.state.slider ? (<p>"Listening to music at a high volume could cause long-term hearing loss."</p>) : <p></p>}
+              {this.state.switch ? (<p>"Your application is offline. You won't be able to share or stream music to other devices."</p>) : <p></p>}
+              {this.state.drop ? (<p>"Music quality is degraded. Increase quality if your connection allows it."</p>) : <p></p>}
+            </div>
           </div>
         </div>
       </div>

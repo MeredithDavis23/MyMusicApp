@@ -17,47 +17,75 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledOpenSelect() {
+export default function ControlledOpenSelect(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
-  const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState("");
+  // const [open, setOpen] = React.useState(false);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  const handleChange = name => event => {
+    if(event.target.value >= 20) {
+        props.parentFun({drop: false})
+    } if (event.target.value < 20){
+        props.parentFun({drop: true})
+    }
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    setState({
+    ...state,
+    [name]: event.target.value,
+    });
+};
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
 
   return (
     <div>
-      <Button className={classes.button} onClick={handleOpen}>
+      {/* <Button className={classes.button} onClick={handleOpen}>
         Sound Quality
-      </Button>
+      </Button> */}
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Volume</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">Quality</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={age}
-          onChange={handleChange}
+          // open={open}
+          // onClose={handleClose}
+          // onOpen={handleOpen}
+          native
+          value={state.state}
+          onChange={handleChange("")}
         >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
-          <MenuItem value={10}>Low</MenuItem>
-          <MenuItem value={20}>Normal</MenuItem>
-          <MenuItem value={30}>High</MenuItem>
+      <option value="" />
+      <option value={10}>Low</option>
+      <option value={20}>Med</option>
+      <option value={30}>High</option>
         </Select>
       </FormControl>
     </div>
   );
 }
+
+// return (
+//   <div className={classes.root}>
+//       <FormControl className={classes.formControl}>
+//       <InputLabel htmlFor="age-native-simple">Sound Quality</InputLabel>
+//           <Select
+//           native
+//           value={state.state}
+//           onChange={handleChange('age')}
+//           inputProps={{
+//           name: 'age',
+//           id: 'age-native-simple',
+//       }}
+//           >
+//               <option value="" />
+//               <option value={10}>Low</option>
+//               <option value={20}>Med</option>
+//               <option value={30}>High</option>
+//           </Select>
+//       </FormControl>
+//       </div>
+//       )}
