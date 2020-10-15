@@ -11,6 +11,9 @@ import InputSlider from "./Slider";
 // import Switch from "./Switch";
 import SoundQuality from "./SoundQuality";
 import Switch from '@material-ui/core/Switch'
+import recordPlayer from "./recordPlayer.jpg"
+
+console.log(recordPlayer)
 
 const useStyles = makeStyles({
   root: {
@@ -60,14 +63,14 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1 classname="title-container">Welcome User!</h1>
+        <h1 classname="title-container" id="title-container">Welcome User!</h1>
         <div id="card-container">
           <div>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image="/static/images/cards/contemplative-reptile.jpg"
+                  img src={recordPlayer} alt="recordPlayer"
                   title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -140,14 +143,14 @@ class Dashboard extends Component {
                 <SoundQuality parentFun={this.handleState} />
               </CardActions>
             </Card>
-            <div classname= "notifications">
+          </div>
+        </div>
+        <div classname= "notifications" id="notifications">
               <h1>System Notifications</h1>
               {this.state.slider ? (<p>"Listening to music at a high volume could cause long-term hearing loss."</p>) : <p></p>}
               {this.state.switch ? (<p>"Your application is offline. You won't be able to share or stream music to other devices."</p>) : <p></p>}
               {this.state.drop ? (<p>"Music quality is degraded. Increase quality if your connection allows it."</p>) : <p></p>}
             </div>
-          </div>
-        </div>
       </div>
     );
   }

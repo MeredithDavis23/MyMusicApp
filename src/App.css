@@ -42,17 +42,38 @@
   flex-direction: column;
   margin: auto;
   width: fit-content;
+  margin-top: 20px;
 }
 
 #title-container {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
+  flex-wrap: wrap; */
   color: black;
   padding: 20px 20px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #card-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+#notifications {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* text-align: center;
+  justify-content: center; */
+  margin: auto;
+  width: fit-content;
+  text-decoration: underline;
+  color: rgb(58, 41, 51);
+}
+
+#title {
+  text-align: center;
+  font-size: 30px;
 }
