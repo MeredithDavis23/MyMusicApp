@@ -33,7 +33,7 @@ export default function ButtonAppBar() {
           <IconButton
             edge="start"
             className={classes.menuButton}
-            color="inherit"
+            color="#4040a1"
             aria-label="menu"
           >
             {/* <MenuIcon /> */}
